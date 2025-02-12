@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Android Alfa</string>
+    <string name="input">Введите ваше имя:</string>
+    <string name="hello">Привет,</string>
+    <string name="button_enter">Ввести</string>
+    <string name="empty">Имя не может быть пустым</string>
+    <string name="not_capital">Имя должно начинаться с заглавной буквы</string>
+    <string name="not_letters">Имя должно состоять из букв</string>
+    <string name="name_hint">Имя</string>
+</resources>
