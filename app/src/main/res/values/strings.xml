@@ -7,4 +7,13 @@
     <string name="not_capital">Name should start with capital</string>
     <string name="not_letters">Name should consist of letters</string>
     <string name="name_hint">Name</string>
+    <string name="get_books">Get Books:</string>
+    <string name="get_books_with_query_button">Get books with query</string>
+    <string name="get_books_all_button">Get all books</string>
+    <string name="query_hint">Author or title…</string>
+    <string name="query_empty">Query can\'t be empty</string>
+    <string name="name">Name</string>
+    <string name="author">Author</string>
+    <string name="subject">Subject</string>
+    <string name="not_found">Not found</string>
 </resources>

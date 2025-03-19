@@ -7,4 +7,13 @@
     <string name="not_capital">Имя должно начинаться с заглавной буквы</string>
     <string name="not_letters">Имя должно состоять из букв</string>
     <string name="name_hint">Имя</string>
+    <string name="get_books">Получить книги:</string>
+    <string name="get_books_with_query_button">Получить книги с запросом</string>
+    <string name="get_books_all_button">Получить все книги</string>
+    <string name="query_hint">Автор или название книги…</string>
+    <string name="query_empty">Запрос не может быть пустым</string>
+    <string name="name">Название</string>
+    <string name="author">Автор</string>
+    <string name="subject">Предмет</string>
+    <string name="not_found">Не найдено</string>
 </resources>
