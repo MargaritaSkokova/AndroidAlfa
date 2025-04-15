@@ -15,7 +15,8 @@ import javax.inject.Inject
 enum class LoadingStatus {
     IN_PROGRESS,
     DONE,
-    NONE
+    NONE,
+    FAILURE,
 }
 
 @HiltViewModel
@@ -27,24 +28,12 @@ class BooksViewModel @Inject constructor(
     private val coroutineScope: CoroutineScope =
         CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
-    val currentBooksList: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
+    val currentBooksList: MutableLiveData<List<Book>> by lazy {
+        MutableLiveData<List<Book>>()
     }
 
     val currentLoadingState: MutableLiveData<LoadingStatus> by lazy {
         MutableLiveData<LoadingStatus>(LoadingStatus.NONE)
-    }
-
-    private lateinit var titleString: String
-    private lateinit var authorString: String
-    private lateinit var subjectString: String
-    private lateinit var notFoundString: String
-
-    fun initialize(title: String, author: String, subject: String, notFound: String) {
-        titleString = title
-        authorString = author
-        subjectString = subject
-        notFoundString = notFound
     }
 
     fun getAllBooks() {
@@ -52,12 +41,13 @@ class BooksViewModel @Inject constructor(
             currentLoadingState.value = LoadingStatus.IN_PROGRESS
             getAllBooksUseCase.invoke()
                 .onSuccess {
-                    currentBooksList.value = convertBooksToString(it)
+                    currentBooksList.value = it
+                    currentLoadingState.value = LoadingStatus.DONE
                 }
                 .onFailure {
-                    currentBooksList.value = it.message ?: notFoundString
+                    currentBooksList.value = emptyList()
+                    currentLoadingState.value = LoadingStatus.FAILURE
                 }
-            currentLoadingState.value = LoadingStatus.DONE
         }
     }
 
@@ -66,31 +56,13 @@ class BooksViewModel @Inject constructor(
             currentLoadingState.value = LoadingStatus.IN_PROGRESS
             getBooksByQueryUseCase.invoke(query)
                 .onSuccess {
-                    currentBooksList.value = convertBooksToString(it)
+                    currentBooksList.value = it
+                    currentLoadingState.value = LoadingStatus.DONE
                 }
                 .onFailure {
-                    currentBooksList.value = it.message ?: notFoundString
+                    currentBooksList.value = emptyList()
+                    currentLoadingState.value = LoadingStatus.FAILURE
                 }
-            currentLoadingState.value = LoadingStatus.DONE
         }
-    }
-
-    fun convertBooksToString(books: List<Book>): String {
-        if (books.isEmpty()) return notFoundString
-
-        val stringBuilder = StringBuilder()
-        books.forEachIndexed { index, book ->
-            stringBuilder.append(
-                "${index + 1}. $titleString: ${book.title} \n${if (book.authors.isEmpty()) "" else "$authorString:"} ${
-                    book.authors.map { author -> author.name }.joinToString(" ")
-                } \n${if (book.subjects.isEmpty()) "" else "$subjectString:"}  ${
-                    book.subjects.joinToString(
-                        " "
-                    )
-                } \n\n"
-            )
-        }
-
-        return stringBuilder.toString()
     }
 }

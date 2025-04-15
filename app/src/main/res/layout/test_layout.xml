@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <com.maran.androidalfa.presentation.ui.BookView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                custom:backgroundColor="@color/md_theme_primaryContainer"
+                custom:author="M. Bulgakov"
+                custom:subject="The story concerns a visit by the devil and his entourage to the officially atheistic Soviet Union. The devil, manifested as one Professor Woland, challenges the Soviet citizens' beliefs towards religion and condemns their behavior throughout the book. The Master and Margarita combines supernatural elements with satirical dark comedy and Christian philosophy, defying categorization within a single genre."
+                custom:title="Master and Margarita"
+                custom:contentColor="@color/md_theme_onPrimaryContainer"
+                custom:titleColor="@color/md_theme_primary"
+                android:layout_margin="16dp"
+                />
+
+            <com.maran.androidalfa.presentation.ui.BookView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                custom:backgroundColor="@color/md_theme_primaryContainer"
+                custom:author="M. Bulgakov"
+                custom:subject="The story concerns a visit by the devil and his entourage to the officially atheistic Soviet Union. The devil, manifested as one Professor Woland, challenges the Soviet citizens' beliefs towards religion and condemns their behavior throughout the book. The Master and Margarita combines supernatural elements with satirical dark comedy and Christian philosophy, defying categorization within a single genre."
+                custom:title="Master and Margarita"
+                custom:contentColor="@color/md_theme_onPrimaryContainer"
+                custom:titleColor="@color/md_theme_primary"
+                android:layout_margin="16dp"
+                />
+
+            <com.maran.androidalfa.presentation.ui.BookView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                custom:backgroundColor="@color/md_theme_primaryContainer"
+                custom:author="M. Bulgakov"
+                custom:subject="The story concerns a visit by the devil and his entourage to the officially atheistic Soviet Union. The devil, manifested as one Professor Woland, challenges the Soviet citizens' beliefs towards religion and condemns their behavior throughout the book. The Master and Margarita combines supernatural elements with satirical dark comedy and Christian philosophy, defying categorization within a single genre."
+                custom:title="Master and Margarita"
+                custom:contentColor="@color/md_theme_onPrimaryContainer"
+                custom:titleColor="@color/md_theme_primary"
+                android:layout_margin="16dp"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
